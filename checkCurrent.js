@@ -15,3 +15,5 @@ const check = (number, position, array) => {
 
   return true;
 };
+
+// Провека гита
