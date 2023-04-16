@@ -15,3 +15,4 @@ const check = (number, position, array) => {
 
   return true;
 };
+module.exports = check;

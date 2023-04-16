@@ -17,21 +17,21 @@ function readAndSolve(error, fileData) {
   // Получить номер судоку из process.argv, либо взять 1-й судоку по умолчанию.
   let puzzleNumber = Number(process.argv[2]) || 1;
 
-  const arr = stringToArray(puzzles, puzzleNumber);
-
+  
   // Ограничить номер судоку максимальным числом массива с паззлами.
   if (puzzleNumber > puzzles.length) {
     puzzleNumber = puzzles.length;
   }
-
+  
+  const puzzle = stringToArray(puzzles, puzzleNumber);
   // Получить желаемый судоку по индексу и вывести его в консоль.
-  const puzzle = puzzles[puzzleNumber - 1];
+  // const puzzle = puzzles[puzzleNumber - 1];
   console.log(`Решаем судоку №${puzzleNumber}:`);
   console.log(puzzle, '\n');
 
   // Использовать функцию solve из файла sudoku.js для решения судоку.
   const solvedPuzzle = sudoku.solve(puzzle);
-
+// до этого момента пока судоку не рештится мы не дойдем
   // Использовать функцию isSolved из файла sudoku.js для проверки решения судоку.
   if (!sudoku.isSolved(solvedPuzzle)) {
     console.log(`Не смогли решить судоку №${puzzleNumber} :(`, '\n');
