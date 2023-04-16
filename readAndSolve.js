@@ -1,5 +1,6 @@
 // Подключить функции из файла sudoku.js.
 const sudoku = require('./sudoku');
+const stringToArray = require('./converter')
 
 function readAndSolve(error, fileData) {
   // Если чтение файла не удалось, выбросить ошибку с описанием проблемы и
@@ -15,6 +16,8 @@ function readAndSolve(error, fileData) {
 
   // Получить номер судоку из process.argv, либо взять 1-й судоку по умолчанию.
   let puzzleNumber = Number(process.argv[2]) || 1;
+
+  const arr = stringToArray(puzzles, puzzleNumber);
 
   // Ограничить номер судоку максимальным числом массива с паззлами.
   if (puzzleNumber > puzzles.length) {
