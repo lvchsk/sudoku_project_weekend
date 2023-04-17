@@ -15,6 +15,7 @@ function solve(puzzle) {
   for (let number = 1; number <= 9; number += 1) {
     if (check(number, position, puzzle)) {
       puzzle[position[0]][position[1]] = String(number);
+      console.table(puzzle);
       return solve(puzzle)
     }
   }
