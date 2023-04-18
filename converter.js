@@ -1,31 +1,26 @@
-const { log } = require('console');
-const fs = require('fs');
-const { EOL } = require('os');
-const path = require('path');
+const { log } = require("console");
+const fs = require("fs");
+const { EOL } = require("os");
+const path = require("path");
 
-
- //функция валидации
+//функция валидации
 //читает файл pazzles.txt и обрабатывает данные, приводя их в более удобный для работы вид
-  
 
 function stringToArray(puzzles, n) {
-  let mainArr = []
+  const mainArr = [];
   for (let i = 0; i < puzzles.length - 1; i += 1) {
-    let result = [];
-    let arr = puzzles[i].split('');
-    // console.log(arr)
+    const result = [];
+    const arr = puzzles[i].split("");
     while (arr.length) {
-
-      const strArr = arr.splice(0,9);
+      const strArr = arr.splice(0, 9);
       if (strArr.length === 9) {
         result.push(strArr);
       }
     }
-    // console.log(result)
-    mainArr.push(result)
+    mainArr.push(result);
   }
 
   return mainArr[n];
-
+}
 
 module.exports = stringToArray;
